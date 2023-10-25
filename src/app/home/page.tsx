@@ -22,6 +22,7 @@ import {
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { cookieContext } from "../cookieContext";
+import BuildingsList from "./BuildingsList";
 
 export default function Home() {
     const cookies = useContext(cookieContext).cookies || 0;
@@ -47,52 +48,14 @@ export default function Home() {
 
     return (
         <Box display="flex" flex={"1 1 100%"}>
-            <Flex color="white" flex={"1 1 100%"}>
-                <Box flex="1 1 33%" bg="#7b3d11">
-                    <Container>
-                        {/* List all existing buildings and upgrades with smilies */}
-                        <List>
-                            <ListItem>
-                                {buildings.magicHand || 0} x Magic Hands 🤲
-                            </ListItem>
-                            <ListItem>
-                                {buildings.grandma || 0} x Grandma 👵
-                            </ListItem>
-                            <ListItem>{buildings.farm || 0} x Farm 🚜</ListItem>
-                            <ListItem>
-                                {buildings.factory || 0} x Factory 🏭
-                            </ListItem>
-                            <ListItem>{buildings.mine || 0} x Mine ⛏️</ListItem>
-                            <ListItem>
-                                {buildings.shipment || 0} x Shipment 🚚
-                            </ListItem>
-                            <ListItem>
-                                {buildings.alchemyLab || 0} x Alchemy Lab 🧪
-                            </ListItem>
-                            <ListItem>
-                                {buildings.portal || 0} x Portal 🌀
-                            </ListItem>
-                            <ListItem>
-                                {buildings.timeMachine || 0} x Time Machine ⏰
-                            </ListItem>
-                            <ListItem>
-                                {buildings.antimatterCondenser || 0} x
-                                Antimatter Condenser 🌌
-                            </ListItem>
-                            <ListItem>
-                                {buildings.prism || 0} x Prism 🌈
-                            </ListItem>
-                            <ListItem>
-                                {buildings.chancemaker || 0} x Chancemaker 🎲
-                            </ListItem>
-                            <ListItem>
-                                {buildings.fractalEngine || 0} x Fractal Engine
-                                🌀
-                            </ListItem>
-                        </List>
-                    </Container>
-                </Box>
-                <Box flex="1 1 100%" bg="#f5fffa">
+            <Flex color="white" direction="row" flex={"1 1 100%"}>
+                <BuildingsList />
+                <Box
+                    flex="1 1 100%"
+                    bg="#f5fffa"
+                    overflowY="auto"
+                    maxHeight="80vh"
+                >
                     <Container
                         display={"flex"}
                         flexDirection={"column"}
@@ -125,6 +88,32 @@ export default function Home() {
                                             bg="#f5fffa"
                                             onClick={() =>
                                                 handleBuild("magicHand")
+                                            }
+                                        >
+                                            Build
+                                        </Button>
+                                    </Flex>
+                                </CardFooter>
+                            </Card>
+                            <Card bg={"#ffdead"}>
+                                <CardHeader>
+                                    <Heading size="md">
+                                        Hire ancient Grandma!
+                                    </Heading>
+                                </CardHeader>
+                                <CardBody>
+                                    <Text>Very good at baking.</Text>
+                                </CardBody>
+                                <CardFooter>
+                                    <Flex
+                                        justifyContent="space-between"
+                                        width="100%"
+                                    >
+                                        <Button bg="#f5fffa">50 🍪</Button>
+                                        <Button
+                                            bg="#f5fffa"
+                                            onClick={() =>
+                                                handleBuild("grandma")
                                             }
                                         >
                                             Build
@@ -199,17 +188,6 @@ export default function Home() {
                                 </CardFooter>
                             </Card>
                         </SimpleGrid>
-                        <Button
-                            colorScheme="yellow"
-                            bg={"#8B5D3B"}
-                            _hover={{ bg: "#7b3d11" }}
-                            color="#f5fffa"
-                            onClick={() =>
-                                setCookies(cookies + 1 + buildings.magicHand)
-                            }
-                        >
-                            Spawn Cookie!
-                        </Button>
                     </Container>
                 </Box>
             </Flex>

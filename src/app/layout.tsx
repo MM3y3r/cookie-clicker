@@ -39,6 +39,9 @@ export default function RootLayout({
                             p={4}
                             color="white"
                             display="flex"
+                            height="15vh"
+                            padding="0em 1em"
+                            alignItems="center"
                         >
                             <CookieCounter />
                         </Box>
@@ -50,6 +53,9 @@ export default function RootLayout({
                             p={4}
                             color="white"
                             display="flex"
+                            height="10vh"
+                            padding="0em 1em"
+                            alignItems="center"
                         >
                             Delicious Footer goes here...
                         </Box>
