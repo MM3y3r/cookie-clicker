@@ -1,8 +1,5 @@
 "use client";
 
-import styles from "./page.module.css";
-import TodoList from "./TodoList";
-import Sidebar from "./Sidebar";
 import {
     Box,
     Button,
@@ -10,13 +7,9 @@ import {
     CardBody,
     CardFooter,
     CardHeader,
-    Center,
     Container,
     Flex,
     Heading,
-    List,
-    ListIcon,
-    ListItem,
     SimpleGrid,
     Text,
 } from "@chakra-ui/react";
@@ -45,6 +38,22 @@ export default function Home() {
                 break;
         }
     }
+
+    type buildingsType = {
+        magicHand: number;
+        grandma: number;
+        farm: number;
+        factory: number;
+        mine: number;
+        shipment: number;
+        alchemyLab: number;
+        portal: number;
+        timeMachine: number;
+        antimatterCondenser: number;
+        prism: number;
+        chancemaker: number;
+        fractalEngine: number;
+    };
 
     return (
         <Box display="flex" flex={"1 1 100%"}>
@@ -123,14 +132,11 @@ export default function Home() {
                             </Card>
                             <Card bg={"#ffdead"}>
                                 <CardHeader>
-                                    <Heading size="md">
-                                        Build Cookie Factory!
-                                    </Heading>
+                                    <Heading size="md">Buy a farm!</Heading>
                                 </CardHeader>
                                 <CardBody>
                                     <Text>
-                                        A mighty factory churning out cookies at
-                                        a staggering rate.
+                                        Produces large quantities of cookies.
                                     </Text>
                                 </CardBody>
                                 <CardFooter>
@@ -138,21 +144,25 @@ export default function Home() {
                                         justifyContent="space-between"
                                         width="100%"
                                     >
-                                        <Button bg="#f5fffa">1000 🍪</Button>
-                                        <Button bg="#f5fffa">Build</Button>
+                                        <Button bg="#f5fffa">500 🍪</Button>
+                                        <Button
+                                            bg="#f5fffa"
+                                            onClick={() => handleBuild("farm")}
+                                        >
+                                            Build
+                                        </Button>
                                     </Flex>
                                 </CardFooter>
                             </Card>
                             <Card bg={"#ffdead"}>
                                 <CardHeader>
                                     <Heading size="md">
-                                        Order Cookies from Mars!
+                                        Build a factory!
                                     </Heading>
                                 </CardHeader>
                                 <CardBody>
                                     <Text>
-                                        Cookies freshly delivered via Space-Ship
-                                        from another planet.
+                                        Produces large quantities of cookies.
                                     </Text>
                                 </CardBody>
                                 <CardFooter>
@@ -160,21 +170,51 @@ export default function Home() {
                                         justifyContent="space-between"
                                         width="100%"
                                     >
-                                        <Button bg="#f5fffa">10.000 🍪</Button>
-                                        <Button bg="#f5fffa">Build</Button>
+                                        <Button bg="#f5fffa">5,000 🍪</Button>
+                                        <Button
+                                            bg="#f5fffa"
+                                            onClick={() =>
+                                                handleBuild("factory")
+                                            }
+                                        >
+                                            Build
+                                        </Button>
+                                    </Flex>
+                                </CardFooter>
+                            </Card>
+                            <Card bg={"#ffdead"}>
+                                <CardHeader>
+                                    <Heading size="md">Build a mine!</Heading>
+                                </CardHeader>
+                                <CardBody>
+                                    <Text>
+                                        Produces large quantities of cookies.
+                                    </Text>
+                                </CardBody>
+                                <CardFooter>
+                                    <Flex
+                                        justifyContent="space-between"
+                                        width="100%"
+                                    >
+                                        <Button bg="#f5fffa">10,000 🍪</Button>
+                                        <Button
+                                            bg="#f5fffa"
+                                            onClick={() => handleBuild("mine")}
+                                        >
+                                            Build
+                                        </Button>
                                     </Flex>
                                 </CardFooter>
                             </Card>
                             <Card bg={"#ffdead"}>
                                 <CardHeader>
                                     <Heading size="md">
-                                        Build Cookie Mine!
+                                        Build a shipment!
                                     </Heading>
                                 </CardHeader>
                                 <CardBody>
                                     <Text>
-                                        A mine that mines cookies. It's a cookie
-                                        mine.
+                                        Produces large quantities of cookies.
                                     </Text>
                                 </CardBody>
                                 <CardFooter>
@@ -182,8 +222,43 @@ export default function Home() {
                                         justifyContent="space-between"
                                         width="100%"
                                     >
-                                        <Button bg="#f5fffa">100.000 🍪</Button>
-                                        <Button bg="#f5fffa">Build</Button>
+                                        <Button bg="#f5fffa">50,000 🍪</Button>
+                                        <Button
+                                            bg="#f5fffa"
+                                            onClick={() =>
+                                                handleBuild("shipment")
+                                            }
+                                        >
+                                            Build
+                                        </Button>
+                                    </Flex>
+                                </CardFooter>
+                            </Card>
+                            <Card bg={"#ffdead"}>
+                                <CardHeader>
+                                    <Heading size="md">
+                                        Build an alchemy lab!
+                                    </Heading>
+                                </CardHeader>
+                                <CardBody>
+                                    <Text>
+                                        Produces large quantities of cookies.
+                                    </Text>
+                                </CardBody>
+                                <CardFooter>
+                                    <Flex
+                                        justifyContent="space-between"
+                                        width="100%"
+                                    >
+                                        <Button bg="#f5fffa">100,000 🍪</Button>
+                                        <Button
+                                            bg="#f5fffa"
+                                            onClick={() =>
+                                                handleBuild("alchemyLab")
+                                            }
+                                        >
+                                            Build
+                                        </Button>
                                     </Flex>
                                 </CardFooter>
                             </Card>
